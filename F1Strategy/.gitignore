@@ -1,0 +1,6 @@
+data/fastf1_cache/
+data/weather_cache*
+outputs/
+__pycache__/
+*.pyc
+.env

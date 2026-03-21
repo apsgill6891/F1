@@ -1,0 +1,9 @@
+fastf1>=3.3.0
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.18.0
+requests>=2.31.0
+requests-cache>=1.1.0
+retry-requests>=2.0.0
+openmeteo-requests>=1.2.0
+rich>=13.7.0
