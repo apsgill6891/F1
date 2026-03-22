@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F1 Strategy Briefing — Suzuka 2025-04-06</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d0d1a; color: #e0e0e0; font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; }
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+             border-bottom: 2px solid #e10600; padding: 20px 30px; }
+  .header h1 { font-size: 22px; color: #fff; }
+  .header .meta { color: #aaa; margin-top: 4px; font-size: 13px; }
+  .header .badge { display:inline-block; background:#e10600; color:#fff;
+                    padding: 2px 10px; border-radius: 4px; font-size: 12px; margin-right: 8px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px 24px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 0 24px 16px; }
+  .card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 8px; padding: 16px; }
+  .card h3 { color: #e10600; font-size: 13px; text-transform: uppercase;
+              letter-spacing: 1px; margin-bottom: 12px; }
+  .stat-row { display: flex; justify-content: space-between; padding: 5px 0;
+               border-bottom: 1px solid #2a2a4a; }
+  .stat-label { color: #888; }
+  .stat-val { color: #fff; font-weight: bold; }
+  .condition-badge { display:inline-block; padding: 4px 12px; border-radius: 20px;
+                      font-weight: bold; font-size: 13px; }
+  .chart-card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 8px;
+                 padding: 12px; }
+  .scenarios-section { padding: 0 24px 24px; }
+  .scenarios-section h2 { color: #fff; font-size: 16px; margin-bottom: 4px; }
+  .scenarios-meta { color: #888; font-size: 13px; margin-bottom: 16px; }
+  .scenario-card { border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+  .scenario-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .risk-badge { padding: 2px 10px; border-radius: 12px; font-size: 11px;
+                 font-weight: bold; letter-spacing: 1px; }
+  .scenario-title { font-size: 15px; font-weight: bold; color: #fff; }
+  .scenario-action { font-size: 16px; font-weight: bold; color: #fff;
+                      margin-bottom: 8px; padding: 8px 12px;
+                      background: rgba(255,255,255,0.05); border-radius: 4px; }
+  .scenario-rationale { color: #ccc; margin-bottom: 10px; line-height: 1.5; }
+  .scenario-alts { color: #aaa; margin-bottom: 8px; }
+  .scenario-alts ul { margin-left: 16px; margin-top: 4px; }
+  .scenario-alts li { margin-bottom: 3px; }
+  .scenario-hist { color: #777; font-size: 12px; font-style: italic; }
+  .stat-pill { display:inline-block; background:#16213e; border:1px solid #2a2a4a;
+                border-radius: 20px; padding: 3px 10px; margin: 2px; font-size: 12px; }
+  .footer { text-align:center; color:#444; font-size:11px; padding: 16px; }
+  @media(max-width:768px) {
+    .grid-2, .grid-4 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>&#127937; F1 Race Strategy Briefing</h1>
+  <div class="meta">
+    <span class="badge">SUZUKA</span>
+    <span class="badge">2025-04-06</span>
+    Max Verstappen &nbsp;|&nbsp; Red Bull Racing
+    &nbsp;&nbsp;&#183;&nbsp;&nbsp; Generated 2026-03-22 06:50
+  </div>
+</div>
+
+<!-- Top stats row -->
+<div class="grid-4">
+  <div class="card">
+    <h3>Weather</h3>
+    <div style="margin-bottom:8px;">
+      <span class="condition-badge" style="background:#39B54A20; color:#39B54A; border:1px solid #39B54A;">
+        DRY (fallback — no API data)
+      </span>
+    </div>
+    <div class="stat-row"><span class="stat-label">Temp</span><span class="stat-val">22.0°C</span></div>
+    <div class="stat-row"><span class="stat-label">Rain prob</span><span class="stat-val">10%</span></div>
+    <div class="stat-row"><span class="stat-label">Wind</span><span class="stat-val">15.0 kph</span></div>
+    <div class="stat-row"><span class="stat-label">Humidity</span><span class="stat-val">60%</span></div>
+    <div style="margin-top:10px; color:#888; font-size:11px;">Unable to fetch live forecast. Assume dry conditions.</div>
+  </div>
+
+  <div class="card">
+    <h3>Track DNA</h3>
+    <div class="stat-row"><span class="stat-label">Total laps</span><span class="stat-val">53</span></div>
+    <div class="stat-row"><span class="stat-label">Pit delta</span><span class="stat-val">22.5s</span></div>
+    <div class="stat-row"><span class="stat-label">SC per race</span><span class="stat-val">0.5</span></div>
+    <div class="stat-row"><span class="stat-label">VSC per race</span><span class="stat-val">1.0</span></div>
+    <div class="stat-row"><span class="stat-label">Red flag/race</span><span class="stat-val">0.0</span></div>
+  </div>
+
+  <div class="card">
+    <h3>Driver — VER</h3>
+    <div class="stat-row"><span class="stat-label">Name</span><span class="stat-val">Max Verstappen</span></div>
+    <div class="stat-row"><span class="stat-label">Tyre mgmt</span><span class="stat-val">Excellent</span></div>
+    <div class="stat-row"><span class="stat-label">Overtaking</span><span class="stat-val">Elite</span></div>
+    <div class="stat-row"><span class="stat-label">Wet perf</span><span class="stat-val">+0.3s advantage</span></div>
+    <div class="stat-row"><span class="stat-label">L1 incident</span><span class="stat-val">Low</span></div>
+  </div>
+
+  <div class="card">
+    <h3>Team — RedBull</h3>
+    <div class="stat-row"><span class="stat-label">Strategy</span><span class="stat-val" style="font-size:12px;">Aggressive — tends to set the strategy pace</span></div>
+    <div class="stat-row"><span class="stat-label">Typical stop</span><span class="stat-val">L16-L20</span></div>
+    <div class="stat-row"><span class="stat-label">Undercut threat</span><span class="stat-val">HIGH — RB always threatens undercut</span></div>
+    <div style="margin-top:10px; color:#888; font-size:11px;">Easy on fronts, pushes rears hard</div>
+  </div>
+</div>
+
+<!-- Charts -->
+<div class="grid-2" style="padding-top:0;">
+  <div class="chart-card"><div id="chart-compounds"></div></div>
+  <div class="chart-card"><div id="chart-pitstops"></div></div>
+  <div class="chart-card"><div id="chart-sc"></div></div>
+  <div class="chart-card"><div id="chart-teams"></div></div>
+</div>
+
+<!-- Scenario engine -->
+<div class="scenarios-section">
+  <h2>&#9889; Scenario Engine</h2>
+  <div class="scenarios-meta">
+    Race state &nbsp;&#183;&nbsp; Lap <strong>18/53</strong>
+    &nbsp;&#183;&nbsp; P<strong>2</strong>
+    &nbsp;&#183;&nbsp; <strong>MEDIUM</strong> (14 laps old)
+    &nbsp;&#183;&nbsp; Gap ahead: <strong>8.5s</strong>
+    &nbsp;&#183;&nbsp; Gap behind: <strong>4.2s</strong>
+  </div>
+  
+    <div class="scenario-card" style="border-left: 4px solid #E8002D; background: #2b0d0d;">
+        <div class="scenario-header">
+            <span class="risk-badge" style="background:#E8002D; color:#000;">HIGH</span>
+            <span class="scenario-title">Safety Car Deployed</span>
+        </div>
+        <div class="scenario-action">&#9658; STAY OUT — protect track position in final stint</div>
+        <div class="scenario-rationale">Only 35 laps left. Pitting risks losing P2. Manage tyre to the flag unless critical failure risk.</div>
+        <div class="scenario-alts">
+            <strong>Alternatives:</strong>
+            <ul><li>BOX if championship gap allows risk (fighting for title = stay out; mid-field = gamble)</li><li>BOX if rain is imminent to switch to Intermediates</li></ul>
+        </div>
+        <div class="scenario-hist"><em>Historical: Late SC pits only pay off when you're outside points and have nothing to lose.</em></div>
+    </div>
+    
+    <div class="scenario-card" style="border-left: 4px solid #FFF200; background: #2b2800;">
+        <div class="scenario-header">
+            <span class="risk-badge" style="background:#FFF200; color:#000;">MEDIUM</span>
+            <span class="scenario-title">Virtual Safety Car Deployed</span>
+        </div>
+        <div class="scenario-action">&#9658; BOX NOW — fit HARD</div>
+        <div class="scenario-rationale">VSC gives ~12.5s effective saving vs green-flag pit. With 35 laps remaining on aged MEDIUM (14 laps old), this is a free stop.</div>
+        <div class="scenario-alts">
+            <strong>Alternatives:</strong>
+            <ul><li>STAY OUT if you're in P2 with clean air and want to extend</li><li>WAIT one lap if safety car end timing is unclear</li></ul>
+        </div>
+        <div class="scenario-hist"><em>Historical: At Suzuka, teams that box under SC in mid-race typically gain 2-4 positions through the pit cycle. VSC benefit is smaller (~8s) — calculate carefully.</em></div>
+    </div>
+    
+    <div class="scenario-card" style="border-left: 4px solid #39B54A; background: #0d2b0d;">
+        <div class="scenario-header">
+            <span class="risk-badge" style="background:#39B54A; color:#000;">LOW</span>
+            <span class="scenario-title">Red Flag</span>
+        </div>
+        <div class="scenario-action">&#9658; USE FREE TYRE CHANGE — fit HARD</div>
+        <div class="scenario-rationale">Red flag gives a FREE tyre change — always use it. With 35 laps remaining, HARD is optimal. Current gap advantage is reset; focus on restart execution.</div>
+        <div class="scenario-alts">
+            <strong>Alternatives:</strong>
+            <ul><li>If wet, fit INTERMEDIATE regardless of target</li><li>Consider SOFT if remaining laps <15 and dry — attack mode</li></ul>
+        </div>
+        <div class="scenario-hist"><em>Historical: Red flags reset gaps. Teams that switch to the right compound here gain 1-3 positions on average. Never waste a free tyre change — the only debate is WHICH tyre, not WHETHER.</em></div>
+    </div>
+    
+    <div class="scenario-card" style="border-left: 4px solid #E8002D; background: #2b0d0d;">
+        <div class="scenario-header">
+            <span class="risk-badge" style="background:#E8002D; color:#000;">HIGH</span>
+            <span class="scenario-title">Rival Behind Pitted — Undercut Threat</span>
+        </div>
+        <div class="scenario-action">&#9658; BOX IMMEDIATELY — undercut threat is real</div>
+        <div class="scenario-rationale">Gap of only 4.2s means rival on fresh tyres WILL emerge ahead after their pit. Box this lap to cover.</div>
+        <div class="scenario-alts">
+            <strong>Alternatives:</strong>
+            <ul><li>PUSH 1 lap max if you're approaching a natural tyre cliff for best of both</li></ul>
+        </div>
+        <div class="scenario-hist"><em>Historical: At Suzuka, gaps under 10s rarely survive an undercut attempt with fresh softs.</em></div>
+    </div>
+    
+    <div class="scenario-card" style="border-left: 4px solid #E8002D; background: #2b0d0d;">
+        <div class="scenario-header">
+            <span class="risk-badge" style="background:#E8002D; color:#000;">HIGH</span>
+            <span class="scenario-title">We Stay Out — Overcut Attempt</span>
+        </div>
+        <div class="scenario-action">&#9658; OVERCUT risky — tyres too old to maintain the delta</div>
+        <div class="scenario-rationale">Tyre already 14 laps old. Rival on fresh rubber will pull away faster than you can build a gap. Overcut unlikely to succeed.</div>
+        <div class="scenario-alts">
+            <strong>Alternatives:</strong>
+            <ul><li>Box within 2 laps — accept reactive undercut</li></ul>
+        </div>
+        <div class="scenario-hist"><em>Historical: Overcuts on old tyres fail ~80% of the time — tyre deg compounds vs fresh rubber pace.</em></div>
+    </div>
+    
+</div>
+
+<div class="footer">F1 Strategy Intelligence Tool &nbsp;&#183;&nbsp; Data: FastF1 / OpenF1 / Open-Meteo &nbsp;&#183;&nbsp; 2026-03-22 06:50</div>
+
+<script>
+Plotly.newPlot('chart-compounds', [{"type": "bar", "x": ["SOFT", "MEDIUM", "HARD"], "y": [93.4, 94.1, 95.3], "marker": {"color": ["#E8002D", "#FFF200", "#FFFFFF"], "line": {"color": "#333", "width": 1}}, "text": ["93.400s", "94.100s", "95.300s"], "textposition": "outside", "hovertemplate": "<b>%{x}</b><br>Avg lap: %{y:.3f}s<extra></extra>"}], {"paper_bgcolor": "#1a1a2e", "plot_bgcolor": "#16213e", "font": {"color": "#e0e0e0", "family": "Arial"}, "title": {"text": "Compound Avg Lap Time (clean laps)", "font": {"size": 14}}, "xaxis": {"title": "Compound", "gridcolor": "#333"}, "yaxis": {"title": "Avg Lap (s)", "gridcolor": "#333", "range": [91.4, 98.3]}, "margin": {"l": 50, "r": 20, "t": 50, "b": 40}, "height": 280}, {responsive:true});
+Plotly.newPlot('chart-pitstops', [{"type": "bar", "x": ["Early (1-15)", "Standard (16-25)", "Late (26-35)", "Very Late (36+)"], "y": [4, 28, 8, 2], "marker": {"color": ["#3671C6", "#39B54A", "#FFF200", "#E8002D"]}, "text": [4, 28, 8, 2], "textposition": "outside", "hovertemplate": "<b>%{x}</b><br>Stops: %{y}<extra></extra>"}], {"paper_bgcolor": "#1a1a2e", "plot_bgcolor": "#16213e", "font": {"color": "#e0e0e0"}, "title": {"text": "Historical First Pit Stop Distribution", "font": {"size": 14}}, "xaxis": {"title": "Lap Window", "gridcolor": "#333"}, "yaxis": {"title": "Stop Count", "gridcolor": "#333"}, "margin": {"l": 50, "r": 20, "t": 50, "b": 60}, "height": 280}, {responsive:true});
+Plotly.newPlot('chart-teams', [{"type": "bar", "orientation": "h", "y": ["Red Bull Racing", "Ferrari", "Mercedes", "McLaren"], "x": [17.5, 15.0, 21.0, 18.5], "marker": {"color": ["#3671C6", "#E8002D", "#27F4D2", "#FF8000"]}, "text": ["L17.5", "L15.0", "L21.0", "L18.5"], "textposition": "outside", "hovertemplate": "<b>%{y}</b><br>Avg first stop: Lap %{x}<extra></extra>"}], {"paper_bgcolor": "#1a1a2e", "plot_bgcolor": "#16213e", "font": {"color": "#e0e0e0"}, "title": {"text": "Team Avg First Stop Lap (historical)", "font": {"size": 14}}, "xaxis": {"title": "Lap Number", "gridcolor": "#333"}, "yaxis": {"gridcolor": "#333"}, "margin": {"l": 130, "r": 60, "t": 50, "b": 40}, "height": 280}, {responsive:true});
+Plotly.newPlot('chart-sc', [{"type": "bar", "x": ["early (L1-L17)", "mid (L18-L35)", "late (L36+)"], "y": [1, 1, 0], "marker": {"color": ["#FFF200", "#FF8000", "#E8002D"]}, "text": [1, 1, 0], "textposition": "outside"}], {"paper_bgcolor": "#1a1a2e", "plot_bgcolor": "#16213e", "font": {"color": "#e0e0e0"}, "title": {"text": "SC/VSC Events by Race Window (SC: 0.5/race, VSC: 1.0/race)", "font": {"size": 13}}, "xaxis": {"gridcolor": "#333"}, "yaxis": {"title": "Event Count", "gridcolor": "#333", "dtick": 1}, "margin": {"l": 50, "r": 20, "t": 60, "b": 40}, "height": 280}, {responsive:true});
+</script>
+</body>
+</html>
