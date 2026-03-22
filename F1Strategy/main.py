@@ -28,6 +28,7 @@ from rich.text import Text
 from track_dna import analyse_circuit, CIRCUIT_COORDS
 from weather import fetch_forecast
 from scenario_engine import ScenarioInput, run_all_scenarios
+from report import generate_html
 
 
 # ── Embedded Suzuka historical data (fallback when network unavailable) ───────
@@ -403,6 +404,11 @@ def main():
     date_str = args.race_date or datetime.now().strftime("%Y-%m-%d")
     out_path = OUTPUT_DIR / f"{args.circuit}_{date_str}_{args.driver}_briefing.txt"
     save_briefing(dna, wx, args.team, args.driver, all_recs, inp, out_path)
+
+    html_path = OUTPUT_DIR / f"{args.circuit}_{date_str}_{args.driver}_briefing.html"
+    generate_html(dna, wx, args.team, args.driver, all_recs, inp, html_path,
+                  TEAM_PROFILES, DRIVER_PROFILES)
+    console.print(f"[bold green]HTML briefing:[/bold green] {html_path}")
 
 
 if __name__ == "__main__":
